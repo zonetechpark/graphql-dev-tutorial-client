@@ -6,25 +6,9 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 import { ApolloProvider } from "react-apollo";
-import { ApolloClient } from "apollo-client";
-import { createHttpLink } from "apollo-link-http";
-import { InMemoryCache } from "apollo-cache-inmemory";
+import {} from "apollo-client";
 
-const httpLink = createHttpLink({
-  uri: "https://eu1.prisma.sh/daniel-ale-da7716/dev-training/dev"
-});
-
-export const client = new ApolloClient({
-  link: httpLink,
-  cache: new InMemoryCache()
-});
-
-ReactDOM.render(
-  <ApolloProvider client={client}>
-    <App />
-  </ApolloProvider>,
-  document.getElementById("root")
-);
+ReactDOM.render(<App />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

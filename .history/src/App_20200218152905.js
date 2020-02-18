@@ -1,8 +1,8 @@
 import React from "react";
 import { gql } from "apollo-boost";
-import { Query, Mutation } from "react-apollo";
+import { Query } from "react-apollo";
 
-const ALL_USERS_QUERY = gql`
+const allUserQuery = gql`
   query getUsers {
     users {
       id
@@ -12,7 +12,7 @@ const ALL_USERS_QUERY = gql`
   }
 `;
 
-const CREATE_USER_MUTATION = gql`
+const createUserMutation = gql`
   mutation createUser($name: String!, $age: Int) {
     createUser(data: { name: $name, age: $age }) {
       id
@@ -24,7 +24,7 @@ const CREATE_USER_MUTATION = gql`
 function App() {
   return (
     <div className='App'>
-      <Query query={ALL_USERS_QUERY}>
+      <Query query={allUserQuery}>
         {({ loading, error, data }) => {
           if (loading) return <div>Loading...</div>;
           if (error) return <div>Error Occurred</div>;
@@ -38,12 +38,6 @@ function App() {
           );
         }}
       </Query>
-      <Mutation
-        mutation={CREATE_USER_MUTATION}
-        variables={{ name: "Olawale", age: 22 }}
-      >
-        {() => <button onClick={"do something"}>Submit</button>}
-      </Mutation>
     </div>
   );
 }

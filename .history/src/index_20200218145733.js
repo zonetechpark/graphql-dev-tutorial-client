@@ -14,7 +14,7 @@ const httpLink = createHttpLink({
   uri: "https://eu1.prisma.sh/daniel-ale-da7716/dev-training/dev"
 });
 
-export const client = new ApolloClient({
+const client = new ApolloClient({
   link: httpLink,
   cache: new InMemoryCache()
 });
